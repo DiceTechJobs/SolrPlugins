@@ -8,6 +8,8 @@ Included:
 * Plugins necessary for **Conceptual Search** Implementation (see Lucene Revolution 2015 talk - http://lucenerevolution.org/sessions/implementing-conceptual-search-in-solr-using-lsa-and-word2vec/)
   * Custom query parsers: **VectorQParser** (for handling dense vector fields), **QueryBoostingQParser** (weighted synonym term expansion at query time)
   * Custom token filters - **MeanPayloadTokenFilter** (averages payloads over duplicate terms), **PayloadQueryBoostTokenFilter** (turns a payload in a synonym file into a term boost at query time)
+  * See also https://github.com/DiceTechJobs/SolrConceptualSearchConfigExamples for example solr xml files
+  * See also https://github.com/DiceTechJobs/ConceptualSearch for python scripts to extract common keywords and phrases, train the word2vec model and cluster the resulting word vectors.
 * Custom Token Filters
   * **TypeEraseFilter** - erases the type field value from the tokens in an analysis chain. Useful if applying several sets of synonym filters, and you want to use only some of these filters to filter the resulting tokens with a TypeTokenFilterFactory
   * **ConstantTokenFilter** - emits a constant token for each token in the token stream. Useful for doing things like counting certain token types - use a synonym filter plus a TypeTokenFilter to filter to certain tokens, and then a ConstantTokenFilter to allow counting or boosting by the number of tokens using the termfreq() function at query time (or apply a negative boost using the count and the div function).
