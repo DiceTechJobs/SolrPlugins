@@ -22,3 +22,6 @@ Included:
   * Implements a well-researched methodology from the field of information retrieval for improving relevancy. Also known as 'blind feedback' and 'pseudo-relevancy feedback'.
   * Uses code based on the custom MLT handler to execute each query twice. The first execution uses the MLT code to grab the top terms for the result set by their tf.idf values. It then adds these terms to the original query (term expansion) and re-executes.
   * This 2 phase execution happens inside of solr (one round trip) and so has a negilible impact on resonse time for most queries while noticeably improving relevancy.
+* **DiceMultipleCaseSuggester** 
+  * Solr suggester modification - can handle UPPER, lower and **T**itle **C**ase variations for type ahead. 
+  * Regular solr suggester functionality is case sensitive.
