@@ -10,7 +10,7 @@ Included:
   * Custom token filters - MeanPayloadTokenFilter (averages payloads over duplicate terms), PayloadQueryBoostTokenFilter (turns a payload in a synonym file into a term boost at query time)
 * Custom Token Filters
   * TypeEraseFilter - erases the type field value from the tokens in an analysis chain. Useful if applying several sets of synonym filters, and you want to use only some of these filters to filter the resulting tokens with a TypeTokenFilterFactory
-  * ConstantTokenFilter - emits a constant token for each token in the token stream. Useful for doing things like counting certain token types - use a synonym filter plus a TypeTokenFilter to filter to certain tokens, and then a ConstantTokenFilter to allow counting the number of tokens using the  function
+  * ConstantTokenFilter - emits a constant token for each token in the token stream. Useful for doing things like counting certain token types - use a synonym filter plus a TypeTokenFilter to filter to certain tokens, and then a ConstantTokenFilter to allow counting or boosting by the number of tokens using the termfreq() function at query time (or apply a negative boost using the count and the div function).
 * Dice custom MLT handler
   * Allows top n terms per field, rather than across all fields specified
   * Fleshes out 'more like these' functionality - use multiple target documents to generate recommendations
