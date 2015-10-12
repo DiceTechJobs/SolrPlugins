@@ -25,3 +25,7 @@ Included:
 * **DiceMultipleCaseSuggester** 
   * Solr suggester modification - can handle UPPER, lower and **T**itle **C**ase variations for type ahead. 
   * Regular solr suggester functionality is case sensitive.
+* **DiceSpellCheckComponent** and **DiceDirectSolrSpellChecker**
+  * Regular solr spell check component can only search for corrections within 2 edit distances of each query term
+  * This extends this functionality to allow you to embed a file of common user typos that will take precedence over the edit distance matches.
+  *  Allows you to datamine common typos that go beyond an edit distance of two and inject them into your spellchecker.
