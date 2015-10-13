@@ -3,7 +3,7 @@ SolrPlugins
 
 A repository for Dice.com's Solr plugins. This relies on the solr source so please note the APACHE license.
 
-Please see https://github.com/DiceTechJobs/SolrConfigExamples for example solr config file entries to configure these plugins.
+Please see https://github.com/DiceTechJobs/SolrConfigExamples for example solr config file entries to configure these plugins. There is a lot of doucmentations in those config files that explain how to use these plugins.
 
 Included:
 
