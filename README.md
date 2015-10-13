@@ -1,7 +1,7 @@
 SolrPlugins
 ======================
 
-A repository for Dice.com's Solr plugins. This relies on the solr source so please note the APACHE license.
+A repository for Dice.com's Solr plugins. Most extend or build on the core solr and lucene libraries with additional functionality we've found useful for certain tasks. This relies on the solr and lucene source code so please note the APACHE license.
 
 Please see https://github.com/DiceTechJobs/SolrConfigExamples for example solr config file entries to configure these plugins. There is a lot of doucmentations in those config files that explain how to use these plugins.
 
@@ -42,3 +42,5 @@ Included:
   * Regular solr spell check component can only search for corrections within 2 edit distances of each query term
   * This extends this functionality to allow you to embed a file of common user typos that will take precedence over the edit distance matches.
   *  Allows you to datamine common typos that go beyond an edit distance of two and inject them into your spellchecker.
+
+Should be compatible with solr versions 4+ and 5+. Please contact me via the issues list in the project with any questions, bug reports, feedback or feature requests.
