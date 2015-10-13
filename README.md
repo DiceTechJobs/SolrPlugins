@@ -8,13 +8,14 @@ Please see https://github.com/DiceTechJobs/SolrConfigExamples for example solr c
 Included:
 
 * Plugins necessary for **Conceptual Search** Implementation (see Lucene Revolution 2015 talk - http://lucenerevolution.org/sessions/implementing-conceptual-search-in-solr-using-lsa-and-word2vec/)
-  * Custom query parsers: **VectorQParser** (for handling dense vector fields), **QueryBoostingQParser** (weighted synonym term expansion at query time)
+  * Custom query parsers: **VectorQParser** (for handling dense vector fields), **QueryBoostingQParser** (weighted synonym term expansion at query time) 
+    * **important**: these query handlers handle the solr multi-word synonym problem by replacing spaces with comma's before query analysis. Your query analysis pipeline for these fields must tokenize on commas as well as spaces.
   * Custom token filters - **MeanPayloadTokenFilter** (averages payloads over duplicate terms), **PayloadQueryBoostTokenFilter** (turns a payload in a synonym file into a term boost at query time)
   * See also https://github.com/DiceTechJobs/SolrConfigExamples for example solr xml files
   * See also https://github.com/DiceTechJobs/ConceptualSearch for python scripts to extract common keywords and phrases, train the word2vec model and cluster the resulting word vectors.
 * PayloadAwareExtendedDismaxQParserPlugin
   * Extension of the edismax query parser that includes the mean payload score over each term in addition to term frequency and document frequency when computing a relevancy score. Allows applicatio of a per term weighting at index time so you can apply your own weightings to the same terms differently depending on the document, for instance if using a 'learning to rank' approach to improve relevancy, or some implementation of probabilist information retrieval.
-  * Requires a custom similarity class implementation to be payload aware, e.g. PayloadAwareDefaultSimilarity
+  * Requires a custom similarity class implementation to be payload aware, e.g. dice's PayloadAwareDefaultSimilarity
 * Custom Token Filters
   * **TypeEraseFilter** - erases the type field value from the tokens in an analysis chain. Useful if applying several sets of synonym filters, and you want to use only some of these filters to filter the resulting tokens with a TypeTokenFilterFactory
   * **ConstantTokenFilter** - emits a constant token for each token in the token stream. Useful for doing things like counting certain token types - use a synonym filter plus a TypeTokenFilter to filter to certain tokens, and then a ConstantTokenFilter to allow counting or boosting by the number of tokens using the termfreq() function at query time (or apply a negative boost using the count and the div function).
