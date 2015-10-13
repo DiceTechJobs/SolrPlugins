@@ -19,7 +19,7 @@ Included:
   * **important** only utilizes payloads for fields which have a field type name that contains 'payload' or 'vector'
 * Custom Similarity Classes
   * Use <similarity class="solr.SchemaSimilarityFactory"/> in schema.xml to configure per field similarity class overrides
-  * Custom classes include
+  * Custom classes include (see https://github.com/DiceTechJobs/SolrPlugins/tree/master/src/main/java/org/dice/solrenhancements/similarity for full list):
     * **PayloadAwareDefaultSimilarity** - DefaultSimilarity class extended to include payloads in scoring function
     * **NoLengthNormSimilarity** - remove all length norms from scoring function - useful for very short fields, such as job titles
     * **PayloadOnlySimilarity** - only score terms on payloads. Useful when building a custom relevancy calculation where you want to disable field norms and tf and idf weightings (such as storing a vector field for conceptual search)
