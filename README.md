@@ -14,7 +14,7 @@ Included:
   * See also https://github.com/DiceTechJobs/SolrConfigExamples for example solr xml files
   * See also https://github.com/DiceTechJobs/ConceptualSearch for python scripts to extract common keywords and phrases, train the word2vec model and cluster the resulting word vectors.
 * PayloadAwareExtendedDismaxQParserPlugin
-  * Extension of the edismax query parser that includes the mean payload score over each term in addition to term frequency and document frequency when computing a relevancy score. Allows applicatio of a per term weighting at index time so you can apply your own weightings to the same terms differently depending on the document, for instance if using a 'learning to rank' approach to improve relevancy, or some implementation of probabilist information retrieval.
+  * Extension of the edismax query parser that includes the mean payload score over each term in addition to term frequency and document frequency when computing a relevancy score. Allows application of a per term weighting at index time so you can apply your own weightings to the same term differently depending on the document, for instance if using a 'learning to rank' approach to improve relevancy, or some implementation of probabilistic information retrieval.
   * Requires a custom similarity class implementation to be payload aware, e.g. dice's PayloadAwareDefaultSimilarity
 * Custom Token Filters
   * **TypeEraseFilter** - erases the type field value from the tokens in an analysis chain. Useful if applying several sets of synonym filters, and you want to use only some of these filters to filter the resulting tokens with a TypeTokenFilterFactory
