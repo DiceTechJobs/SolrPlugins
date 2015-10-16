@@ -31,10 +31,10 @@ Included:
   * Fleshes out 'more like these' functionality - use multiple target documents to generate recommendations
   * **boost** query support - supports multiplicative boosts for matching items, for instance boost by relevancy and proximity to your user
   * Better support for content streams in place of source documents to generate recommendations from
-* **Unsupervised Feedback Handler**
+* **Unsupervised Feedback Handler (a.k.a. blind feedback \ pseudo-relevancy feedback)**
   * Implements a well-researched methodology from the field of information retrieval for improving relevancy. Also known as 'blind feedback' and 'pseudo-relevancy feedback'.
   * Uses code based on the custom MLT handler to execute each query twice. The first execution uses the MLT code to grab the top terms for the result set by their tf.idf values. It then adds these terms to the original query (term expansion) and re-executes.
-  * This 2 phase execution happens inside of solr (one round trip) and so has a negilible impact on resonse time for most queries while noticeably improving relevancy.
+  * This 2 phase execution happens inside of solr (one round trip) and so has a negilible impact on response time for most queries while noticeably improving relevancy.
 * **DiceMultipleCaseSuggester** 
   * Solr suggester modification - can handle UPPER, lower and **T**itle **C**ase variations for type ahead. 
   * Regular solr suggester functionality is case sensitive.
