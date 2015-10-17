@@ -22,7 +22,7 @@ Included:
   * Custom classes include (see https://github.com/DiceTechJobs/SolrPlugins/tree/master/src/main/java/org/dice/solrenhancements/similarity for full list):
     * **PayloadAwareDefaultSimilarity** - DefaultSimilarity class extended to include payloads in scoring function
     * **NoLengthNormSimilarity** - remove all length norms from scoring function - useful for very short fields, such as job titles
-    * **PayloadOnlySimilarity** - only score terms on payloads. Useful when building a custom relevancy calculation where you want to disable field norms and tf and idf weightings (such as storing a vector field for conceptual search)
+    * **PayloadOnlySimilarity** - only score terms on payloads. Useful when building a custom relevancy calculation where you want to disable field norms and tf and idf weightings (such as storing a vector field for conceptual search, or building a recommender system where you want to embed your own term weights from a machine learning model)
 * Custom Token Filters
   * **TypeEraseFilter** - erases the type field value from the tokens in an analysis chain. Useful if applying several sets of synonym filters, and you want to use only some of these filters to filter the resulting tokens with a TypeTokenFilterFactory
   * **ConstantTokenFilter** - emits a constant token for each token in the token stream. Useful for doing things like counting certain token types - use a synonym filter plus a TypeTokenFilter to filter to certain tokens, and then a ConstantTokenFilter to allow counting or boosting by the number of tokens using the termfreq() function at query time (or apply a negative boost using the count and the div function).
