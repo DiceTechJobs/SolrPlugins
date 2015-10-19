@@ -35,9 +35,15 @@ Included:
   * Implements a well-researched methodology from the field of information retrieval for improving relevancy. Also known as 'blind feedback' and 'pseudo-relevancy feedback'.
   * Uses code based on the custom MLT handler to execute each query twice. The first execution uses the MLT code to grab the top terms for the result set by their tf.idf values. It then adds these terms to the original query (term expansion) and re-executes.
   * This 2 phase execution happens inside of solr (one round trip) and so has a negilible impact on response time for most queries while noticeably improving relevancy.
+* **DiceSuggester** 
+  * A suggester that allows you to apply a separate field type to transform the matching terms into some other string. For instance, we use it to map all variants of a skill into a canonical form (e.g. hadoop=>"Apahce Hadoop") before returning the suggestions.
+  * It allows different field types to be used to process matching suggestions (suggestionAnalyzerFieldTypeName), such as applying synonyms, stemming, etc. This is necessary for applying the transformation, as the spellchecker needs to store the raw un modified tokens to do the auto-complete.
+  * It also ensures all suggestions generated are UNIQUE.
+  * Requires a comma-delimited set of files containing phrase counts (param sourceLocation). These are phrases from the transformed field, along with their counts. See SolrConfigExamples - skillSuggest configuration.
 * **DiceMultipleCaseSuggester** 
   * Solr suggester modification - can handle UPPER, lower and **T**itle **C**ase variations for type ahead. 
   * Regular solr suggester functionality is case sensitive.
+  * See SolrConfigExamples - titleSuggest configuration.
 * **DiceSpellCheckComponent** and **DiceDirectSolrSpellChecker**
   * Regular solr spell check component can only search for corrections within 2 edit distances of each query term
   * This extends this functionality to allow you to embed a file of common user typos that will take precedence over the edit distance matches.
