@@ -8,6 +8,7 @@ import org.apache.lucene.queries.function.valuesource.SumFloatFunction;
 import org.apache.lucene.search.PhraseQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.util.BytesRef;
+import org.apache.lucene.util.UnicodeUtil;
 import org.apache.solr.schema.FieldType;
 import org.apache.solr.schema.StrField;
 import org.apache.solr.schema.TextField;
@@ -38,7 +39,7 @@ public class TermOverlapValueSourceParser extends ValueSourceParser {
         ValueSource[] matches = new ValueSource[fieldInfo.terms.size()];
         for(int i = 0; i < fieldInfo.terms.size(); i++){
             TermInfo termInfo = fieldInfo.terms.get(i);
-            matches[i] = new BinaryTermExistsValueSource(fieldInfo.field, termInfo.indexedBytes.utf8ToString(), fieldInfo.indexedField, termInfo.indexedBytes);
+            matches[i] = new BinaryTermExistsValueSource(fieldInfo.field, termInfo.val, fieldInfo.indexedField, termInfo.indexedBytes);
         }
 
         final SumFloatFunction sum = new SumFloatFunction(matches);
@@ -71,7 +72,10 @@ public class TermOverlapValueSourceParser extends ValueSourceParser {
                         continue;
                     }
                     parsedTerms.add(value);
-                    final TermInfo termInfo = new TermInfo(value);
+                    final TermInfo termInfo = new TermInfo();
+                    termInfo.val = value;
+
+                    UnicodeUtil.UTF16toUTF8(termInfo.val, termInfo.indexedBytes);
                     fieldInfo.terms.add(termInfo);
                 }
             }
@@ -88,9 +92,7 @@ public class TermOverlapValueSourceParser extends ValueSourceParser {
     }
 
     private static class TermInfo {
-        public final BytesRef indexedBytes;
-        public TermInfo(String s){
-               indexedBytes = new BytesRef(s);
-        }
+        String val;
+        BytesRef indexedBytes = new BytesRef();
     }
 }

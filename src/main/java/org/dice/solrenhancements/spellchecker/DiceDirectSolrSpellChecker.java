@@ -255,7 +255,7 @@ public class DiceDirectSolrSpellChecker extends SolrSpellChecker {
             String tokenText = token.toString();
             Term term = new Term(field, tokenText);
             int freq = options.reader.docFreq(term);
-            int count = (options.alternativeTermCount > 0  && freq > 0) ? options.alternativeTermCount: options.count;
+            int count = (options.alternativeTermCount >0 && freq > 0) ? options.alternativeTermCount: options.count;
             SuggestWord[] suggestions = checker.suggestSimilar(term, count,options.reader, options.suggestMode, accuracy);
             result.addFrequency(token, freq);
 

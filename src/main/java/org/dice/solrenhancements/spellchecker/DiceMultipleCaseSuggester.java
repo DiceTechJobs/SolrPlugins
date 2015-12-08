@@ -277,7 +277,7 @@ public class DiceMultipleCaseSuggester extends SolrSpellChecker {
     }
 
     private Token newToken(Token existing, String newText){
-        return new Token(newText, existing.startOffset(), existing.endOffset());
+        return new Token(newText, existing.startOffset(), existing.endOffset(), existing.type());
     }
 
     private String toTitleCase(String s){

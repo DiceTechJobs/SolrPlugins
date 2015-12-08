@@ -75,7 +75,7 @@ public class MoreLikeThisHelper
         if(payloadFields != null){
             mlt.setPayloadFields(payloadFields);
         }
-        mlt.setAnalyzer( searcher.getSchema().getIndexAnalyzer() );
+        mlt.setAnalyzer( searcher.getSchema().getAnalyzer() );
 
         // configurable params
 

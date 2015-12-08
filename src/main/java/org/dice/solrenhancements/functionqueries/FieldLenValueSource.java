@@ -3,9 +3,9 @@ package org.dice.solrenhancements.functionqueries;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.document.Document;
+import org.apache.lucene.index.AtomicReaderContext;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexableField;
-import org.apache.lucene.index.LeafReaderContext;
 import org.apache.lucene.queries.function.FunctionValues;
 import org.apache.lucene.queries.function.ValueSource;
 import org.apache.lucene.queries.function.docvalues.IntDocValues;
@@ -42,7 +42,7 @@ public class FieldLenValueSource extends ValueSource {
     }
 
     @Override
-    public FunctionValues getValues(Map context, LeafReaderContext readerContext) throws IOException{
+    public FunctionValues getValues(Map context, AtomicReaderContext readerContext) throws IOException {
         final IndexReader ir = readerContext.reader();
         final String indexedField = this.indexedField;
 

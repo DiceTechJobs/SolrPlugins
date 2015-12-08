@@ -16,7 +16,7 @@ public class FieldLenValueSourceParser extends ValueSourceParser {
 
     public ValueSource parse(FunctionQParser fp) throws SyntaxError {
         String indexedField = fp.parseArg();
-        Analyzer analyzer = fp.getReq().getSchema().getIndexAnalyzer();
+        Analyzer analyzer = fp.getReq().getSchema().getAnalyzer();
 
         return new FieldLenValueSource(indexedField, analyzer);
     }

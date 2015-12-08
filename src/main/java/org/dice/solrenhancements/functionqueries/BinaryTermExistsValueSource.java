@@ -46,7 +46,7 @@ public class BinaryTermExistsValueSource extends DocFreqValueSource {
     }
 
     @Override
-    public FunctionValues getValues(Map context, LeafReaderContext readerContext) throws IOException{
+    public FunctionValues getValues(Map context, AtomicReaderContext readerContext) throws IOException {
         Fields fields = readerContext.reader().fields();
         final Terms terms = fields.terms(indexedField);
 
@@ -61,7 +61,7 @@ public class BinaryTermExistsValueSource extends DocFreqValueSource {
                 // no one should call us for deleted docs?
 
                 if (terms != null) {
-                    final TermsEnum termsEnum = terms.iterator();
+                    final TermsEnum termsEnum = terms.iterator(null);
                     if (termsEnum.seekExact(indexedBytes)) {
                         docs = termsEnum.docs(null, null);
                     } else {

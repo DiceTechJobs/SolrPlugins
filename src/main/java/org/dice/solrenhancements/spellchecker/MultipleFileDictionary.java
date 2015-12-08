@@ -58,6 +58,7 @@ public class MultipleFileDictionary implements Dictionary {
             BufferedReader in = new BufferedReader(reader);
             ins.add(in);
         }
+
     }
 
     @Override
@@ -113,6 +114,11 @@ public class MultipleFileDictionary implements Dictionary {
         }
 
         @Override
+        public Comparator<BytesRef> getComparator() {
+            return null;
+        }
+
+        @Override
         public BytesRef payload() {
             return null;
         }
@@ -122,13 +128,16 @@ public class MultipleFileDictionary implements Dictionary {
             return false;
         }
 
+        @Override
         public Set<BytesRef> contexts() {
             return null;
         }
 
+        @Override
         public boolean hasContexts() {
             return false;
         }
     }
+
 
 }
