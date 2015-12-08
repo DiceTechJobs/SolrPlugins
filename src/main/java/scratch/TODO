@@ -1,0 +1,40 @@
+File of ideas\enhancements
+
+Example query
+    defType=payloadEdismax&df=title&mlt.payloadfl=apply_skills,apply_titles&mlt.maxflqt=5&mlt.qf=title^2 skills&mlt.fl=title,apply_skills,apply_titles&mlt.mintf=1&mlt.mindf=1&mlt.boost=true&mlt.boostfn=div(1,max(25,geodist(location,37.7771,-122.4173)))&mlt.interestingTerms=details
+
+    Note: with edismax and payloadEdismax we need to specify df, qf
+
+    ex distance boost:
+        &mlt.boostfn=div(1.0,min(1000,max(25,geodist(latlng,38.840439,-77.539719))))
+
+** 1. Add function query boost
+** 2. Add in a param to specify max terms per field, and grab top x terms per field and build query
+** 3. Ensure each field from the above is normalized w.r.t to the total boosts
+** sorting (copied from custom MLT handler)
+
+** 4. Include payload functionality (if field name.tolower() includes "payload", then construct payload and not term query obj).
+**      Ensure to test with payload edismax parser. Maybe pass in a list of payload boosting fields
+
+** 4.01 Better DEBUGGING output
+4.02 Specify the term ranking method. tf, idf, tf.idf (default), log(tf).log(idf), etc
+4.1  Handle payloads with termvector fields
+5.   Add in pf and pf2 and pf3 params (similar to MLT, except field lists include boosts)
+6.   Other Edismax features? Call it DismaxMLTHandler? Except it's not doing an DisjunctionMax
+7.   Add in calculated fields into the resulting docs that are cosine scores for the fields matched on
+      (if some flag set, as costly computation)
+      (gets us the match score Will's been asking for)
+8.   Ability to pull out a field to match on in the function query between documents
+      (i.e. so they don't have to specify the geolocation of the target doc) (example patterns could be {0}, {1})
+9.   Should we disable coord when constructing BooleanQuery objects (is an constructor option)
+10.  Look at including a stop word list by field (or just include in the index)
+      - we want to ignore ms office skills, and analyst (see skills ignore list) - BUT idf should handle this mostly
+11.  Add better error message for when no df or qf specified with edismax (throws an unhelpful error otherwise)
+12.  Throw helpful error if any of the fields specified in the payload or mlt.qf parameters
+      don't exist in the fl list
+**13.  Allow for an additional fq to be specified when matching documents, which may differ from the one used
+** to find the seed document. We would need this for matching jobs to seekers (i.e. different item type filters)
+
+Testing
+    Test with term vectors turned on, to ensure that isn't broken (try a query with a mixture of fields)
+        Make sure payloads work correctly with term vector fields

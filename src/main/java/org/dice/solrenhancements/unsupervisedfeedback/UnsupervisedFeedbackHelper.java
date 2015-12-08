@@ -62,7 +62,7 @@ public class UnsupervisedFeedbackHelper
             String[] payloadFields = splitList.split(sPayloadFieldList);
             uf.setPayloadFields(payloadFields);
         }
-        uf.setAnalyzer(searcher.getSchema().getAnalyzer());
+        uf.setAnalyzer(searcher.getSchema().getIndexAnalyzer());
 
         // configurable params
 

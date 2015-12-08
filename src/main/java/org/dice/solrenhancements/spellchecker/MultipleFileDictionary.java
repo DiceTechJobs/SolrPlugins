@@ -3,6 +3,7 @@ package org.dice.solrenhancements.spellchecker;
 import org.apache.lucene.search.spell.Dictionary;
 import org.apache.lucene.search.suggest.InputIterator;
 import org.apache.lucene.util.BytesRef;
+import org.apache.lucene.util.BytesRefBuilder;
 import org.apache.lucene.util.IOUtils;
 
 import java.io.BufferedReader;
@@ -11,6 +12,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more
@@ -40,6 +42,7 @@ import java.util.List;
  */
 public class MultipleFileDictionary implements Dictionary {
 
+
     private List<BufferedReader> ins;
     private BufferedReader currentReader = null;
     private String line;
@@ -58,14 +61,16 @@ public class MultipleFileDictionary implements Dictionary {
     }
 
     @Override
-    public InputIterator getWordsIterator() {
-        return new FileIterator();
+    public InputIterator getEntryIterator() throws IOException {
+        return new InputIterator.InputIteratorWrapper(new FileIterator());
     }
 
     final class FileIterator implements InputIterator {
         private long curFreq;
-        private final BytesRef spare = new BytesRef();
+        private final BytesRefBuilder spare = new BytesRefBuilder();
 
+        FileIterator(){
+        }
 
         @Override
         public long weight() {
@@ -95,7 +100,7 @@ public class MultipleFileDictionary implements Dictionary {
                     spare.copyChars(line);
                     curFreq = 1;
                 }
-                return spare;
+                return spare.get();
             } else {
                 IOUtils.close(currentReader);
                 if(ins.size() == 0){
@@ -108,17 +113,20 @@ public class MultipleFileDictionary implements Dictionary {
         }
 
         @Override
-        public Comparator<BytesRef> getComparator() {
-            return null;
-        }
-
-        @Override
         public BytesRef payload() {
             return null;
         }
 
         @Override
         public boolean hasPayloads() {
+            return false;
+        }
+
+        public Set<BytesRef> contexts() {
+            return null;
+        }
+
+        public boolean hasContexts() {
             return false;
         }
     }

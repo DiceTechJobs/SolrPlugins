@@ -945,11 +945,11 @@ public final class UnsupervisedFeedback {
      * @param vector List of terms and their weights for a doc/field
      */
     private void addTermWeights(Map<String, Flt> termWeightMap, Terms vector) throws IOException {
-        final TermsEnum termsEnum = vector.iterator(null);
-        final CharsRef spare = new CharsRef();
+        final TermsEnum termsEnum = vector.iterator();
+        CharsRefBuilder spare = new CharsRefBuilder();
         BytesRef text;
         while((text = termsEnum.next()) != null) {
-            UnicodeUtil.UTF8toUTF16(text, spare);
+            spare.copyUTF8Bytes(text);
             final String term = spare.toString();
             if (isNoiseWord(term)) {
                 continue;

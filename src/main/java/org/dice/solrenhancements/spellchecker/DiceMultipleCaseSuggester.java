@@ -277,7 +277,7 @@ public class DiceMultipleCaseSuggester extends SolrSpellChecker {
     }
 
     private Token newToken(Token existing, String newText){
-        return new Token(newText, existing.startOffset(), existing.endOffset(), existing.type());
+        return new Token(newText, existing.startOffset(), existing.endOffset());
     }
 
     private String toTitleCase(String s){
@@ -290,7 +290,7 @@ public class DiceMultipleCaseSuggester extends SolrSpellChecker {
         return String.valueOf(s.charAt(0)).toUpperCase() + s.substring(1).toLowerCase();
     }
 
-    private List<LookupResult> getLookupResults(SpellingOptions options, Token currentToken) {
+    private List<LookupResult> getLookupResults(SpellingOptions options, Token currentToken) throws IOException {
         CharsRef scratch = new CharsRef();
         scratch.chars = currentToken.buffer();
         scratch.offset = 0;
