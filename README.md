@@ -2,6 +2,7 @@ SolrPlugins
 ======================
 
 A Dice Tech Job repository for Dice.com's Solr plugins. Most extend or build upon the core solr and lucene libraries (kudos to the original contributors and the ASF) with additional functionality we've found useful for certain tasks. This extends upon the original solr and lucene source code (version 4.6.1) so please note the APACHE license.
+**Please see the branches for versions built against different solr versions, including 5.3.1**
 
 Please see https://github.com/DiceTechJobs/SolrConfigExamples for example solr config file entries to configure these plugins. There is a lot of documentation in those config files that explain in more detail how to use these plugins.
 
