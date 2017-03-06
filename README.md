@@ -1,12 +1,15 @@
-SolrPlugins
-======================
+DiceTechJobs - Solr Plugins
+===========================
 
 A Dice Tech Job repository for Dice.com's Solr plugins. Most extend or build upon the core solr and lucene libraries (kudos to the original contributors and the ASF) with additional functionality we've found useful for certain tasks. This extends upon the original solr and lucene source code (version 4.6.1) so please note the APACHE license.
-**Please see the branches for versions built against different solr versions, including 5.3.1**
+**Please see the branches for versions built against different solr versions, including 6.3**
 
-Please see https://github.com/DiceTechJobs/SolrConfigExamples for example solr config file entries to configure these plugins. There is a lot of documentation in those config files that explain in more detail how to use these plugins.
+## Documentation
 
-Included:
+Please see the [SolrConfigExamples](https://github.com/DiceTechJobs/SolrConfigExamples) repository for example solr config file entries to configure these plugins. There is a lot of documentation in those config files that explain in more detail how to use these plugins. This repository serves as the main documentation for how to use these plugins. There are a number of new plugins in the 6.0+ branches that are experimental and not currently documented, including a valid precedence preserving boolean logic parser (Solr's does not parse Boolean queries while observing proper operator precendence). Please reach out to me at simon.hughes@dice.com with any questions you have.
+
+
+## Included Functionality:
 
 * Plugins necessary for **Conceptual Search** Implementation (see Lucene Revolution 2015 talk - http://lucenerevolution.org/sessions/implementing-conceptual-search-in-solr-using-lsa-and-word2vec/)
   * Custom query parsers: **VectorQParser** (for handling dense vector fields), **QueryBoostingQParser** (weighted synonym term expansion at query time) 
@@ -50,4 +53,11 @@ Included:
   * This extends this functionality to allow you to embed a file of common user typos that will take precedence over the edit distance matches.
   *  Allows you to data-mine common typos that go beyond an edit distance of 2 and inject them into your spellchecker, or override common bad spellchecking suggestions.
 
-Should be compatible with solr versions 4+ and 5+. Please contact us via the issues list in this repository with any questions, bug reports, feedback or feature requests.
+Should be compatible with solr versions 4+ and 5+ and 6+. Please contact us via the issues list in this repository with any questions, bug reports, feedback or feature requests.
+
+## See Also
+Please also check out the other Solr-related DiceTechJobs repositories:
+
+* [SolrConfigExamples](https://github.com/DiceTechJobs/SolrConfigExamples) - Example solr configurations for using the functionality in the plugins.
+* [ConceptualSearch](https://github.com/DiceTechJobs/ConceptualSearch) - Dice's implementation of Conceptual or Semantic search, for use in solr using Word2Vec.
+* [RelevancyTuning](https://github.com/DiceTechJobs/RelevancyTuning) - Automatic approach to relevancy tuning your Solr configuration. Uses reinforcement learning and evolutionary algorithms to evolve an optimal solr configuration (field boosts, tie parameter setting, query handler, etc).
