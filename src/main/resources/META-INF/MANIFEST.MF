@@ -1,0 +1,10 @@
+Specification-Title: App Name
+Specification-Version: ${pom.version} - ${build.time}
+Specification-Vendor: Company Name
+Implementation-Title: App Name
+Implementation-Version: ${pom.version} - ${build.time}
+Implementation-Vendor: Company Name
+Built-By: ${user.name}
+Build-Jdk: ${java.version}
+Build-Time: ${build.time}
+Built-Date: ${build.time}

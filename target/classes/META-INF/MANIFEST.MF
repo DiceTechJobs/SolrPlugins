@@ -1,0 +1,10 @@
+Specification-Title: App Name
+Specification-Version: 1 - 2017-03-06 09:30:41
+Specification-Vendor: Company Name
+Implementation-Title: App Name
+Implementation-Version: 1 - 2017-03-06 09:30:41
+Implementation-Vendor: Company Name
+Built-By: simon.hughes
+Build-Jdk: 1.8.0
+Build-Time: 2017-03-06 09:30:41
+Built-Date: 2017-03-06 09:30:41
