@@ -53,7 +53,7 @@ Please see the [SolrConfigExamples](https://github.com/DiceTechJobs/SolrConfigEx
   * This extends this functionality to allow you to embed a file of common user typos that will take precedence over the edit distance matches.
   *  Allows you to data-mine common typos that go beyond an edit distance of 2 and inject them into your spellchecker, or override common bad spellchecking suggestions.
 
-Should be compatible with solr versions 4+ and 5+. Please contact us via the issues list in this repository with any questions, bug reports, feedback or feature requests.
+Should be compatible with solr versions 4+ and 5+ and 6+. Please contact us via the issues list in this repository with any questions, bug reports, feedback or feature requests.
 
 ## See Also
 Please also check out the other Solr-related DiceTechJobs repositories:
