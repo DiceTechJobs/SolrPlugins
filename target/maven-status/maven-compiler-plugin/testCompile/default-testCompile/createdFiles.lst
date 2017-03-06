@@ -1,0 +1,4 @@
+org/dice/parsing/TestLexer.class
+org/dice/parsing/TestRecursiveDescentParser.class
+org/dice/parsing/InteractiveConsole.class
+org/dice/parsing/TestQueryLexer.class
