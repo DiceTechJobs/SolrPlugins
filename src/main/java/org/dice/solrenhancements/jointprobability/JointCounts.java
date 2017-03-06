@@ -173,10 +173,10 @@ public class JointCounts extends SimpleFacets {
         switch (method) {
             case ENUM:
                 // intersectsCheck should be false, else facet counts will be capped at 1 (binary)
-                counts = getFacetTermEnumCounts(searcher, docs, field, offset, limit, mincount,false,sort,null, null, false, false);
+                counts = getFacetTermEnumCounts(searcher, docs, field, offset, limit, mincount,false,sort,null, null, false, null);
                 break;
             case FC:
-                counts = DocValuesFacets.getCounts(searcher, docs, field, offset, limit, mincount, false, sort, null, null, false, null);
+                counts = DocValuesFacets.getCounts(searcher, docs, field, offset, limit, mincount, false, sort, null, null, false);
                 break;
             default:
                 throw new AssertionError();

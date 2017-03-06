@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="org.dice.parsing.TestRecursiveDescentParser" time="0.024" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="org.dice.parsing.TestRecursiveDescentParser" time="0.023" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2016.3.4"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -13,7 +13,7 @@
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
-    <property name="idea.launcher.port" value="7532"/>
+    <property name="idea.launcher.port" value="7535"/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
@@ -23,7 +23,7 @@
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/endorsed"/>
     <property name="os.arch" value="x86_64"/>
-    <property name="visualvm.id" value="302596103735996"/>
+    <property name="visualvm.id" value="304400238826987"/>
     <property name="java.io.tmpdir" value="/var/folders/97/_9xfnqln35vb6b1ng9czmr2d4x97nt/T/"/>
     <property name="line.separator" value="
 "/>
@@ -67,18 +67,18 @@
     <property name="sun.cpu.isalist" value=""/>
   </properties>
   <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="insertsWildcardWhenMissingOperand" time="0.004"/>
-  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="insertsMissingLeftParen" time="0.002"/>
+  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="insertsMissingLeftParen" time="0.001"/>
   <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="addsErrorMalformedExpression" time="0.001"/>
-  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="addsErrorMessageOnMissingRightParen" time="0.002"/>
+  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="addsErrorMessageOnMissingRightParen" time="0.001"/>
   <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="handlesEmptyQuotes" time="0.002"/>
-  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="insertsMissingRightParen" time="0.002"/>
-  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="handlesQuotes" time="0.001"/>
+  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="insertsMissingRightParen" time="0.001"/>
+  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="handlesQuotes" time="0"/>
   <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="parsesNotOperator" time="0.001"/>
-  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="ignoresDelimiters" time="0"/>
+  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="ignoresDelimiters" time="0.001"/>
   <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="handlesFieldQueries" time="0.004"/>
-  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="insertsOrWhenOperatorsOmitted" time="0.002"/>
+  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="insertsOrWhenOperatorsOmitted" time="0.003"/>
   <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="insertsMissingQuote" time="0.001"/>
-  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="ignoresCase" time="0.001"/>
+  <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="ignoresCase" time="0.002"/>
   <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="addsErrorMessageOnMissingLeftParen" time="0.001"/>
   <testcase classname="org.dice.parsing.TestRecursiveDescentParser" name="enforcesOperatorPrecedence" time="0"/>
 </testsuite>
