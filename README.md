@@ -61,3 +61,4 @@ Please also check out the other Solr-related DiceTechJobs repositories:
 * [SolrConfigExamples](https://github.com/DiceTechJobs/SolrConfigExamples) - Example solr configurations for using the functionality in the plugins.
 * [ConceptualSearch](https://github.com/DiceTechJobs/ConceptualSearch) - Dice's implementation of Conceptual or Semantic search, for use in solr using Word2Vec.
 * [RelevancyTuning](https://github.com/DiceTechJobs/RelevancyTuning) - Automatic approach to relevancy tuning your Solr configuration. Uses reinforcement learning and evolutionary algorithms to evolve an optimal solr configuration (field boosts, tie parameter setting, query handler, etc).
+* [RelevancyFeedback](https://github.com/DiceTechJobs/RelevancyFeedback) - Slightly updated (and renamed) version of the MLT handler and unsupervised feedback handler that handle personalized search scenarios.
